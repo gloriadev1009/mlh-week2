@@ -1,0 +1,555 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<!-- <div class="text-center">
+	Home page<br>
+	Welcome to Holiday Planner!
+</div> -->
+
+	     <!-- Bootstrap 5 CDN Links -->
+		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	 
+			  <!-- Ubuntu - Google font -->
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+		 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		 <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+	 
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+		 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+	 
+			 <style>
+			   *{
+		 margin: 0;
+		 padding: 0;
+		 box-sizing: border-box;
+	 }
+	 
+	  html body
+	  {
+		  max-width: 100%;
+		  overflow-x: hidden;
+		  font-family: 'Ubuntu', sans-serif;
+	  }
+	 
+	  /* navbar */
+	 .navbar, header{
+		 background-color:#FFD25F;
+	 }
+	 .navbar-brand{
+		 font-family: 'Ubuntu', sans-serif;
+		 font-weight: bold;
+		 font-size: 28px;
+		 color: initial;
+	 }
+	 .nav-link{
+		 font-family: 'Ubuntu', sans-serif;
+		 font-weight: bold;
+		 color: initial;
+	 }
+	 .sign-in{
+		 border: 1px solid black;
+		 border-radius: 20px;
+	 }
+	 .navbar-nav{
+		 margin-left: auto;
+	 }
+	 
+	 /* header */
+	 header{
+		 padding-block: 25px;
+	 }
+	 select{
+	 
+		 border: none;
+		 outline: none;
+		 background:none;
+	 
+	 }
+	 input{
+		 font-weight: bold;
+		 padding: 5px;
+		 font-family: 'Ubuntu', sans-serif;
+	 }
+	 .clearable-input {
+		 position: relative;
+		 display: inline-block;
+	 }
+	 .clearable-input > input {
+		 padding-right: 1.4em;
+		 outline: 0;
+	 }
+	 .clearable-input > [data-clear-input] {
+		 position: absolute;
+		 top: 0;
+		 right: 0;
+		 font-weight: bold;
+		 font-size: 1.4em;
+		 padding: 0 0.2em;
+		 line-height: 1.5em;
+		 cursor: pointer;
+	 
+	 }
+	 .clearable-input > input::-ms-clear {
+		 display: none;
+	 }
+	 .box{
+		 background-color: white;
+		 padding-block: 10px;
+		 padding-inline: 15px;
+		 margin-bottom: 10px;
+	 }
+	 .box-2{
+		 padding-block: 16px;
+		 background-color: white;
+		 padding-inline: 15px;
+		 margin-bottom: 10px;
+	 }
+	 .search{
+		 float: right;
+		 margin-right: -70px;
+		 margin-top: -60px;
+	 }
+	 
+	 /* main */
+	 .buy-box{
+		 background: #FFFFFF;
+		 border: 1px solid rgba(154, 154, 154, 0.5);
+		 box-sizing: border-box;
+		 border-radius: 10px;
+		 padding: 10px;
+	 }
+	 .buy-box h6{
+		 font-weight: bold;
+		 font-family: 'Ubuntu', sans-serif;
+	 }
+	 .buy-box p{
+		 font-size: 18px;
+		 padding-inline: 13px;
+	 }
+	 .buy-box ul, .list{
+		 list-style-type: none;
+		 display: flex;
+		 justify-content: space-between;
+	 }
+	 .box-text{
+		 position: relative;
+		 right: 20px;
+	 }
+	 .list{
+		 position: relative;
+		 right: 10px;
+	 }
+	 
+	 .list li h6{
+		 font-weight: bold;
+		 font-family: 'Ubuntu', sans-serif;
+	 }
+	 
+	 .top-box{
+		 background: #FFFFFF;
+		 border: 1px solid rgba(154, 154, 154, 0.5);
+		 box-sizing: border-box;
+		 border-radius: 10px;
+		 padding: 10px;
+	 
+		 font-family: 'Ubuntu', sans-serif;
+	 }
+	 .top-box-2{
+		 background: #FFFFFF;
+		 border: 1px solid rgba(154, 154, 154, 0.5);
+		 box-sizing: border-box;
+		 border-radius: 10px;
+		 padding: 10px;
+	 
+		 font-family: 'Ubuntu', sans-serif;
+	 }
+	 .top-box-div{
+		 border-right: 1px solid rgba(0, 0, 0, 0.5);
+	 }
+	 .top-box-2{
+		 margin-top: 25px;
+	 }
+	 .top-box-2-list{
+		 display: flex;
+		 flex-wrap: wrap;
+		 justify-content: space-around;
+		 list-style-type: none;
+	 }
+	 .top-box-2-list li img{
+		 margin-top: -5px;
+	 }
+	 input[type="checkbox"]{
+		 transform: scale(1.5);
+		 margin-top: 10px;
+	 }
+	 .round{
+		 border: 1px solid rgba(0, 0, 0, 0.5);
+		 border-radius: 30px;
+		 display: inline-block;
+		 padding-inline: 5px;
+	 }
+	 .left-border{
+		 border-left: 2px solid #D0CFCE;
+	 }
+	 .add-to-cart h4{
+		 font-weight: bold;
+		 padding-top: 50px;
+	 }
+	 .btn{
+		 background-color: #FFF1BE;
+		 color: black;
+	 }
+	 .badge-div{
+		position: relative;
+		 left: 40px;
+		 bottom: 20px;
+	 }
+	 .badge{
+		 background-color: #92D3F5;
+	 }  
+			 </style>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MLHflight <img src="../static/img/noto_airplane.png" class="img-fluid" alt="airoplane"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link sign-in" href="#"><img src="../static/img/carbon_user-avatar-filled-alt.png" class="img-fluid" alt="avatar">&nbsp;Sign in
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#"><img src="../static/img/emojione_flag-for-canada.png" class="img-fluid" alt="flag"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">c$</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+
+</nav>
+
+<header>
+    <div class="container">
+        <!-- select boxes -->
+        <select>
+            <option>Round-trip</option>
+            <option>One-way</option>
+            <option>Two-way</option>
+        </select>
+
+        <select class="mx-2">
+            <option>1-Adult</option>
+            <option>2-Adult</option>
+            <option>3-Adult</option>
+        </select>
+
+        <select>
+            <option>Economy</option>
+            <option>Business</option>
+            <option>First</option>
+        </select>
+
+<br>
+        <br>
+        <!-- Input boxes -->
+<div class="row">
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+
+        <!--
+        <div class="clearable-input mt-2">
+            <input type="text" value="Toronto(YTO)" style="border: 0"/>
+            <span data-clear-input>&times;</span>
+        </div>
+        -->
+
+        <div class="box">
+
+            <div class="clearable-input">
+                <input type="text" value="Vancouver(YVR)" />
+                <span data-clear-input>&times;</span>
+            </div>
+
+            <img src="../static/img/Group.png" alt="" style="float: right" class="img-fluid">
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="box ">
+            <div class="clearable-input">
+                <input type="text" value="Vancouver(YVR)" />
+                <span data-clear-input>&times;</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="box-2">
+
+            <img src="../static/img/fa-solid_calendar-alt.png" alt="calender" class="img-fluid">
+            <a>Tue 10/8</a>
+
+
+
+            <img src="../static/img/ic_twotone-keyboard-arrow-left.png" alt="" class="img-fluid">
+            <img src="../static/img/ic_baseline-keyboard-arrow-right.png" alt="" class="img-fluid">
+
+            &nbsp;
+
+|
+            &nbsp;
+            <img src="../static/img/fa-solid_calendar-alt.png" alt="calender" class="img-fluid">
+            <a>Tue 17/8</a>
+
+
+
+            <img src="../static/img/ic_twotone-keyboard-arrow-left.png" alt="" class="img-fluid">
+            <img src="../static/img/ic_baseline-keyboard-arrow-right.png" alt="" class="img-fluid">
+
+
+        </div>
+        <img src="../static/img/whh_magnifier.png" alt="" class="img-fluid search">
+    </div>
+
+</div>
+    </div>
+
+
+</header>
+
+
+<main class="main mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+
+                <div class="buy-box">
+                    <ul>
+                        <li class="box-text"> <h6>Our Advice</h6>
+                            <h6 style="color: #1FAB2D;">Buy now</h6></li>
+                        <li> <img src="../static/img/fxemoji_chartupwardstrend.png" alt=""  class="img-fluid"></li>
+
+                    </ul>
+
+                    <p>Prices are unlikely to get any better before you travel.
+                        <img src="../static/img/grommet-icons_circle-information.png" alt=""  class="img-fluid">
+                    </p>
+
+                    <hr style="border: 1px solid rgba(154, 154, 154, 0.5); ">
+
+                    <ul>
+                        <li class="box-text"> <h6>Track prices</h6>
+                        </li>
+                        <li> <img src="../static/img/Group%20(1).png" alt=""  class="img-fluid">
+                        <a style="font-weight: bold">OFF</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+<br>
+                <p>846 of <span style="color: #45B0EC">880 flights</span></p>
+                <hr style="border: 1px solid rgba(154, 154, 154, 0.5); ">
+
+                <ul class="list">
+                    <li class="box-text"> <h6>Recommended filters</h6>
+                    </li>
+                    <li> <img src="../static/img/dashicons_arrow-up-alt2.png" alt=""  class="img-fluid">
+                    </li>
+
+                </ul>
+
+                <input type="checkbox" />&nbsp; &nbsp; <a style="font-weight: 400">Hide 1 stop</a>
+
+                <hr style="border: 1px solid rgba(154, 154, 154, 0.5); ">
+
+                <h6 style="font-weight: bold">Stops</h6>
+                <ul class="list">
+                    <li class="box-text"><input type="checkbox" checked/>&nbsp; &nbsp; <a style="font-weight: 400">Direct</a>
+                    </li>
+                    <li> C$ 513
+                    </li>
+
+
+                </ul>
+
+                <ul class="list">
+                    <li class="box-text"><input type="checkbox" checked/>&nbsp; &nbsp; <a style="font-weight: 400">1 stop</a>
+                    </li>
+                    <li> C$ 498
+                    </li>
+
+
+                </ul>
+
+                <ul class="list">
+                    <li class="box-text"><input type="checkbox" checked/>&nbsp; &nbsp; <a style="font-weight: 400">2+ stops</a>
+                    </li>
+                    <li> C$ 991
+                    </li>
+
+
+                </ul>
+
+                <hr style="border: 1px solid rgba(154, 154, 154, 0.5); ">
+
+
+                <h6 style="font-weight: bold">Fee Assistant &nbsp; <img src="../static/img/grommet-icons_circle-information.png" alt=""></h6>
+
+                <ul class="list">
+                    <li class="box-text">
+                        <img src="../static/img/fluent_shopping-bag-16-filled.png" alt="" class="img-fluid">
+                        <a style="position: relative; top: 3px">Checked bag</a>
+                    </li>
+                    <li>
+                        <img src="../static/img/feather_minus-square.png" alt="" class="img-fluid">
+                        &nbsp;&nbsp;
+                        0
+                        &nbsp;&nbsp;
+                        <img src="../static/img/bi_plus-square.png" alt="" class="img-fluid">
+                    </li>
+
+
+                </ul>
+
+                <hr style="border: 1px solid rgba(154, 154, 154, 0.5); ">
+
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+
+                <div class="top-box">
+
+                    <div class="row pt-3">
+                        <div class="col-lg-3 col-md-3 col-sm-12 top-box-div">
+                              <h6>Cheapest</h6>
+                            <p>C$ 506 · 9h 12m</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 top-box-div">
+
+                            <h6 style="font-weight: bold">Best &nbsp; <img src="../static/img/grommet-icons_circle-information.png" alt=""></h6>
+                            <p style="font-weight: bold">C$ 566 · 4h 35m</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 top-box-div">
+
+                            <h6>Quickest</h6>
+                            <p>C$ 2,086 · 4h 25m</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 pt-3">
+                            <img src="../static/img/fluent_list-24-regular.png" alt="">
+&nbsp;
+                            <a style="font-weight: bold">Other sort</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="top-box-2">
+
+                    <div class="row">
+
+                        <div class="col-lg-9 col-md-9 col-sm-12 mt-4">
+<div class="badge-div">
+    <span class="badge rounded-pill">Best</span>
+</div>
+                            <ul class="top-box-2-list">
+                                <li><input type="checkbox"></li>
+                                <li><img src="../static/img/openmoji_small-airplane.png" alt="" class="img-fluid"></li>
+                                <li>10:35 p.m - 12:25 a.m.</li>
+                                <li>direct</li>
+                                <li>4h 58m</li>
+                            </ul>
+
+                            <ul class="top-box-2-list">
+                                <li><input type="checkbox"></li>
+                                <li><img src="../static/img/openmoji_small-airplane.png" alt="" class="img-fluid"></li>
+                                <li>10:35 p.m - 12:25 a.m.</li>
+                                <li>direct</li>
+                                <li>4h 58m</li>
+                            </ul>
+
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 left-border">
+<div class="round">
+                            <img src="../static/img/fluent_shopping-bag-16-filled.png" alt="" class="img-fluid">
+                            &nbsp;
+                            &nbsp;
+                            0
+</div>
+
+                            <div class="add-to-cart">
+                                <h4>C$ 566</h4>
+                                <a href="#" class="btn">View Deal</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="top-box-2">
+
+                    <div class="row">
+
+                        <div class="col-lg-9 col-md-9 col-sm-12 mt-4">
+                            <div class="badge-div">
+                                <span class="badge rounded-pill">Best</span>
+                            </div>
+                            <ul class="top-box-2-list">
+                                <li><input type="checkbox"></li>
+                                <li><img src="../static/img/openmoji_small-airplane.png" alt="" class="img-fluid"></li>
+                                <li>10:35 p.m - 12:25 a.m.</li>
+                                <li>direct</li>
+                                <li>4h 58m</li>
+                            </ul>
+
+                            <ul class="top-box-2-list">
+                                <li><input type="checkbox"></li>
+                                <li><img src="../static/img/openmoji_small-airplane.png" alt="" class="img-fluid"></li>
+                                <li>10:35 p.m - 12:25 a.m.</li>
+                                <li>direct</li>
+                                <li>4h 58m</li>
+                            </ul>
+
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 left-border">
+                            <div class="round">
+                                <img src="../static/img/fluent_shopping-bag-16-filled.png" alt="" class="img-fluid">
+                                &nbsp;
+                                &nbsp;
+                                0
+                            </div>
+
+                            <div class="add-to-cart">
+                                <h4>C$ 566</h4>
+                                <a href="#" class="btn">View Deal</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    Array.prototype.forEach.call(document.querySelectorAll('.clearable-input>[data-clear-input]'), function(el) {
+        el.addEventListener('click', function(e) {
+            e.target.previousElementSibling.value = '';
+        });
+    });
+</script>
+	</body>
+{% endblock %}
